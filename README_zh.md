@@ -127,6 +127,10 @@ Polyform Shield许可证：此许可证适用于autogpt_platform文件夹。
 为了使仓库提供的所有工具尽可能易于使用，仓库根目录包含一个CLI：
 
 ```shell
+
+conda create -n auto_gpt python=3.12
+conda activate auto_gpt
+
 $ ./run
 用法: cli.py [选项] 命令 [参数]...
 选项:
@@ -171,3 +175,19 @@ $ ./run
 <a href="https://github.com/Significant-Gravitas/AutoGPT/graphs/contributors" alt="查看贡献者">
   <img src="https://contrib.rocks/image?repo=Significant-Gravitas/AutoGPT&max=1000&columns=10" alt="贡献者" />
 </a>
+
+
+## 其他
+
+
+### Poetry
+Poetry 是一个专为 Python 设计的​​全栈式项目管理工具
+- ​智能依赖管理​​
+    - 采用 pyproject.toml 替代传统的 requirements.txt，支持精确声明主依赖和开发依赖（如测试框架），并通过 poetry.lock 文件锁定版本，避免因依赖冲突导致的“依赖地狱”问题。
+    - 示例：安装 Flask 时自动解析其子依赖（如 Werkzeug、Jinja2），卸载时智能清理孤立包，解决了 pip 卸载残留的痛点。
+- 一体化虚拟环境​​
+    - 自动创建与项目绑定的虚拟环境（如 my-project-3.11），无需手动操作 venv 或 virtualenv，通过 poetry shell 即可进入环境，确保项目隔离性。
+    - 支持与 Conda 结合使用：用 Conda 管理 Python 版本和系统级依赖（如 CUDA），Poetry 专注 Python 包管理，实现跨平台兼容。
+- 标准化项目构建​​
+    - 提供从初始化（poetry init）到打包（poetry build）、发布（poetry publish）的全流程工具链，简化了 Python 库的分发过程。
+    - 支持生成兼容 pip 的 requirements.txt（poetry export），便于与传统工具协作。
